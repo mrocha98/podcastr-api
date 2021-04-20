@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  db:
+    container_name: podcastr_postgres
+    image: postgres:13-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_HOST: ${DATABASE_HOST:-127.0.0.1}
+      POSTGRES_DB: ${DATABASE_NAME:-podcastr-db}
+      POSTGRES_USER: ${DATABASE_USER:-admin}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-admin123}
+      LANG: pt_BR.UTF-8
+    ports:
+      - "${DATABASE_PORT:-5437}:5432"
+    logging:
+      options:
+        max-size: "6m"
+        max-file: "4"
+
+  adminer:
+    container_name: podcastr_adminer
+    image: wodby/adminer:latest
+    depends_on: 
+      - db
+    restart: unless-stopped
+    environment:
+      ADMINER_DEFAULT_DB_DRIVER: pgsql
+      ADMINER_DEFAULT_DB_HOST: db
+      ADMINER_DEFAULT_DB_NAME: ${DATABASE_NAME:-podcastr-db}
+      ADMINER_DESIGN: dracula
+      ADMINER_PLUGINS: tables-filter tinymce
+    ports:
+      - "${ADMINER_PORT:-9000}:9000"
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"

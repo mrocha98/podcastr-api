@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_media_files",
+  "info": {
+    "name": "file",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

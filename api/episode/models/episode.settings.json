@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "episodes",
+  "info": {
+    "name": "Episode"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "podcast": {
+      "via": "episodes",
+      "model": "podcast"
+    },
+    "file": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.file",
+      "required": true
+    },
+    "publishedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "thumbnail": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "members": {
+      "via": "participations",
+      "collection": "person",
+      "dominant": true
+    }
+  }
+}
