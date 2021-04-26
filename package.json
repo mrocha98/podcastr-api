@@ -2,7 +2,24 @@
   "name": "podcastr-api",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Back-end used in Podcastr project",
+  "author": {
+    "name": "Matheus Rocha",
+    "email": "matheus_rocha98@outlook.com"
+  },
+  "license": "MIT",
+  "homepage": "https://podcastr-strapi.herokuapp.com/documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrocha98/podcastr-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrocha98/podcastr-api/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
   "scripts": {
     "develop": "strapi develop",
     "dev": "yarn develop",
@@ -28,15 +45,7 @@
     "strapi-plugin-users-permissions": "3.6.0",
     "strapi-utils": "3.6.0"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
   "strapi": {
     "uuid": "e5d3c65b-8892-4502-bdef-53905718601a"
-  },
-  "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": "^6.0.0"
-  },
-  "license": "MIT"
+  }
 }
